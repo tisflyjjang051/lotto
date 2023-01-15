@@ -14,7 +14,7 @@
     <main>
       <div class="btns">
         <label>
-          <input type="radio" value="1" name="lotto" checked />
+          <input type="radio" value="1" name="lotto" />
           <span>1</span>
         </label>
         <label>
@@ -44,35 +44,50 @@
       //   배열 [1,2,3,4,7,8,9,10 ~ 46]
 
       const paper = document.querySelector(".paper ul");
+      const btns = document.querySelectorAll(".btns input");
+      console.log("🚀 ~ file: index.html:47 ~ btns", btns);
 
-      const nums = [];
-      const lotto = [];
-      for (let i = 1; i <= 46; i++) {
-        nums.push(i);
-        //nums.unshift(i);
-      }
-      for (let i = 0; i < 6; i++) {
-        const selected = nums.splice(Math.floor(Math.random() * nums.length), 1).pop();
-        lotto.push(selected);
-      }
-      lotto.sort(function (first, second) {
-        return first - second;
+      btns.forEach(function (item, i) {
+        item.addEventListener("change", function () {
+          paper.innerHTML = "";
+          paper.parentElement.classList.remove("on");
+          setTimeout(function () {
+            paper.parentElement.classList.add("on");
+            for (let j = 0; j <= i; j++) {
+              makeLotto();
+            }
+          }, 1000);
+        });
       });
-      lotto.forEach(function (item) {
-        let color = "";
-        if (item <= 10) {
-          color = "yellow";
-        } else if (item <= 20) {
-          color = "blue";
-        } else if (item <= 30) {
-          color = "red";
-        } else if (item <= 40) {
-          color = "black";
-        } else {
-          color = "green";
+      function makeLotto() {
+        const nums = [];
+        const lotto = [];
+        for (let i = 1; i <= 46; i++) {
+          nums.push(i);
         }
-        paper.innerHTML += `<li class="${color}">${item}</li>`;
-      });
+        for (let i = 0; i < 6; i++) {
+          const selected = nums.splice(Math.floor(Math.random() * nums.length), 1).pop();
+          lotto.push(selected);
+        }
+        lotto.sort(function (first, second) {
+          return first - second;
+        });
+        lotto.forEach(function (item) {
+          let color = "";
+          if (item <= 10) {
+            color = "yellow";
+          } else if (item <= 20) {
+            color = "blue";
+          } else if (item <= 30) {
+            color = "red";
+          } else if (item <= 40) {
+            color = "black";
+          } else {
+            color = "green";
+          }
+          paper.innerHTML += `<li class="${color}">${item}</li>`;
+        });
+      }
     </script>
   </body>
 </html>
