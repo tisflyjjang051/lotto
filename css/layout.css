@@ -25,31 +25,55 @@ header h1 {
   text-transform: uppercase;
 }
 
-.paper {
-  width: 80%;
-  min-height: 300px;
-  margin: 50px auto;
+.btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 10px;
+}
+.btns input[type=radio] {
+  display: none;
+}
+.btns input[type=radio]:checked ~ span {
+  background-color: rgb(226, 10, 10);
+}
+.btns span {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  font-weight: bold;
+  color: #fff;
+  aspect-ratio: 1/1;
+  background-color: #111;
+  border-radius: 100%;
+}
+
+.paper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 50px auto;
+  min-height: 300px;
   background-color: #fff;
 }
 .paper ul {
   display: flex;
   width: 100%;
-  gap: 10px;
   padding: 10px;
+  gap: 10px;
 }
 .paper ul li {
-  width: 16.6666666667%;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  color: #fff;
+  width: 16.6666666667%;
   font-weight: bold;
+  color: #fff;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  background-color: #fff;
 }
 .paper ul li.yellow {
   background-color: rgb(255, 166, 32);
