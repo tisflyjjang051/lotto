@@ -43,7 +43,19 @@
         return first - second;
       });
       lotto.forEach(function (item) {
-        paper.innerHTML += `<li>${item}</li>`;
+        let color = "";
+        if (item <= 10) {
+          color = "yellow";
+        } else if (item <= 20) {
+          color = "blue";
+        } else if (item <= 30) {
+          color = "red";
+        } else if (item <= 40) {
+          color = "black";
+        } else {
+          color = "green";
+        }
+        paper.innerHTML += `<li class="${color}">${item}</li>`;
       });
     </script>
   </body>

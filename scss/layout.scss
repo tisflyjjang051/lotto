@@ -24,14 +24,17 @@ header {
 .paper {
   width: 80%;
   min-height: 300px;
-  margin: auto;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+
   ul {
     display: flex;
     width: 100%;
     gap: 10px;
+    padding: 10px;
     li {
       width: calc(100% / 6);
       aspect-ratio: 1/1;
@@ -40,6 +43,23 @@ header {
       justify-content: center;
       align-items: center;
       background-color: #fff;
+      color: #fff;
+      font-weight: bold;
+      &.yellow {
+        background-color: rgb(255, 166, 32);
+      }
+      &.blue {
+        background-color: rgb(6, 148, 214);
+      }
+      &.red {
+        background-color: rgb(238, 55, 23);
+      }
+      &.black {
+        background-color: rgb(56, 56, 56);
+      }
+      &.green {
+        background-color: rgb(70, 221, 0);
+      }
     }
   }
 }
